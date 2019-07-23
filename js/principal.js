@@ -24,12 +24,15 @@ for(i =0; i < pacientes.length; i++){
     if(peso<=10 || peso>=300){
         pesoEhValido = false;
         tdImc.textContent = "inválido";
+        paciente.classList.add("paciente-invalido");
 
     }
 
     if(altura<=0 || altura>=3){
         alturaEhValida = false;
         tdImc.textContent = "inválido";
+        paciente.classList.add("paciente-invalido");
+
     }
 
     if(alturaEhValida && pesoEhValido){
@@ -37,4 +40,6 @@ for(i =0; i < pacientes.length; i++){
         tdImc.textContent = imc.toFixed(2);
 
     }
+
+
 }
