@@ -3,36 +3,32 @@ botaoAdicionar.addEventListener("click", function(event) {
     event.preventDefault();
 
     var form = document.querySelector("#form-adiciona");
-    //extraindo dados do paciente
-    var paciente = obtemPacienteDoForm(form);
-    // montando tr e td com os dados extraídos
+
+    var paciente = obtemPacienteDoFormulario(form);
+
     var pacienteTr = montaTr(paciente);
-   
+
     var tabela = document.querySelector("#tabela-pacientes");
 
     tabela.appendChild(pacienteTr);
 
     form.reset();
-
 });
 
-// funções
+function obtemPacienteDoFormulario(form) {
 
-function obtemPacienteDoForm(form){
     var paciente = {
-        nome : form.nome.value,
-        peso : form.peso.value,
-        altura : form.altura.value,
-        gordura : form.gordura.value,
-        imc : calculaImc(form.peso.value, form.altura.value)
-        }
+        nome: form.nome.value,
+        peso: form.peso.value,
+        altura: form.altura.value,
+        gordura: form.gordura.value,
+        imc: calculaImc(form.peso.value, form.altura.value)
+    }
 
     return paciente;
-
 }
 
-function montaTr(paciente){
-
+function montaTr(paciente) {
     var pacienteTr = document.createElement("tr");
     pacienteTr.classList.add("paciente");
 
@@ -45,13 +41,10 @@ function montaTr(paciente){
     return pacienteTr;
 }
 
-function montaTd(dado,classe){
+function montaTd(dado, classe) {
     var td = document.createElement("td");
-    td.textContent = dado;
     td.classList.add(classe);
+    td.textContent = dado;
 
     return td;
-
 }
-
-
